@@ -1,0 +1,39 @@
+{
+    "baseurl": "",
+    "absoluteBaseurl": "https://atomproject.github.io/elements/",
+    "footerText": "atom-elements.io",
+    "elements": [{
+        "name": "t-button",
+        "category": "form",
+        "icon": "Button",
+        "displayName": "Button",
+        "location": "https://github.com/atomelements/t-button"
+    }, {
+        "name": "t-table",
+        "category": "data",
+        "icon": "Table",
+        "displayName": "Table",
+        "location": "https://github.com/atomelements/t-table"
+    }, {
+        "name": "t-tabs",
+        "category": "page",
+        "icon": "Map",
+        "displayName": "Tabs",
+        "location": "https://github.com/atomelements/t-tabs"
+    }, {
+        "name": "demo-tester",
+        "displayName": "Demo Tester",
+        "location": "components/demo-tester",
+        "propertyFile": "bower_components/t-component-panel/demo/property.json"
+    }],
+    "categories": [{
+        "name": "data",
+        "displayName": "Data"
+    }, {
+        "name": "form",
+        "displayName": "Form Basic"
+    }, {
+        "name": "page",
+        "displayName": "Page"
+    }]
+}

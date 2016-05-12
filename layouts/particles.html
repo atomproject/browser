@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+
+  {% include head.html %}
+
+<!-- bower_components is deleted after vulcanization so files that should be
+  retained must be added to excludes array in `removeBowerComponents` function -->
+  <script src="{{ site.baseurl }}/bower_components/particles.js/particles.js"></script>
+
+</head>
+<body>
+
+  <div id="particles-js">
+  	{{ content }}
+  </div>
+
+  <script>
+    particlesJS.load('particles-js', '{{ site.baseurl }}/assets/particles.json');
+  </script>
+</body>
+</html>

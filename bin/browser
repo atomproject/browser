@@ -1,0 +1,67 @@
+#!/usr/bin/env node
+
+let fs = require('q-io/fs');
+let path = require('path');
+let argv = require('minimist')(process.argv.slice(2));
+let Q = require('q');
+Q.longStackSupport = true;
+
+let {seedNew, generateSite} = require('../lib');
+
+function printVersion() {
+  let packageJson = path.join(path.dirname(__dirname), 'package.json');
+
+  return fs.read(packageJson)
+    .then(packageJson => console.log(JSON.parse(packageJson).version));
+}
+
+function printHelp() {
+console.log(`
+usage: browser [<args>]
+
+Manage the element documentation browser
+usage: browser [-g | --generate]
+               [-n | --new <dir name>]
+args:
+  -g | --generate
+    Generate the documentation site in _site dir
+
+  -n | --new <dir name>
+    Create a new browser seeded with sample files
+
+  -h | --help
+      Print help
+
+  -v | --version
+      Print version
+`);
+}
+
+Q.spawn(function* () {
+  if (argv.h || argv.help) {
+    printHelp();
+  }
+
+  else if (argv.v || argv.version) {
+    printVersion();
+  }
+
+  else if (argv.n || argv.new) {
+    yield seedNew(argv.n || argv.new);
+  }
+
+  else if (argv.g || argv.generate) {
+    // TODO: factor out the creation of config from arguments
+    let argvConfig = {};
+
+    if (argv.baseurl) {
+      argvConfig.baseurl = argv.baseurl;
+    }
+
+    yield generateSite(argvConfig);
+  }
+
+  else {
+    printHelp();
+  }
+});
