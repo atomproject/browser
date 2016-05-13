@@ -33,7 +33,7 @@ will be created. So, `cd` into the directory and generate the site.
 
 ```
 cd myDocs && browser -g
-``
+```
 
 This creates documentation site in folder `_site`. You can copy this folder for
 deployment.
