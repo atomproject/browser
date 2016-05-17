@@ -5,29 +5,21 @@
     "elements": [{
         "name": "t-button",
         "category": "form",
-        "icon": "Button",
         "displayName": "Button",
         "install": "atomelements/t-button",
         "githubUrl": "https://github.com/atomelements/t-button"
     }, {
         "name": "t-table",
         "category": "data",
-        "icon": "Table",
         "displayName": "Table",
         "install": "atomelements/t-table",
         "githubUrl": "https://github.com/atomelements/t-table"
     }, {
         "name": "t-tabs",
         "category": "page",
-        "icon": "Map",
         "displayName": "Tabs",
         "install": "atomelements/t-tabs",
         "githubUrl": "https://github.com/atomelements/t-tabs"
-    }, {
-        "name": "demo-tester",
-        "displayName": "Demo Tester",
-        "install": "components/demo-tester",
-        "propertyFile": "bower_components/t-component-panel/demo/property.json"
     }],
     "categories": [{
         "name": "data",
