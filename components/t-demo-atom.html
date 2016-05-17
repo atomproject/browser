@@ -230,11 +230,11 @@
         this.$.demo.src = this.$.demo.src;
       },
 
-      canBeChanged: function(propertyAttributes) {
+      canBeChanged: function(propInfo) {
         var isComputed, isReadOnly;
 
-        isComputed = propertyAttributes.computed;
-        isReadOnly = propertyAttributes.readOnly;
+        isComputed = propInfo.computed;
+        isReadOnly = propInfo.readOnly;
 
         //if the property is a computed or read only property then
         //don't touch it
@@ -245,8 +245,8 @@
         return true;
       },
 
-      getDefaultValue: function(propertyAttributes, component) {
-        var defaultValue = propertyAttributes.value;
+      getDefaultValue: function(propInfo, component) {
+        var defaultValue = propInfo.value;
 
         //if the defaultValue is not a primitive value
         if (typeof defaultValue === 'function') {
@@ -260,14 +260,14 @@
       },
 
       applyCurrentValue: function(defaultValue, currentValue,
-        propertyAttributes) {
+        propInfo) {
         //both the default and current values should be different but
         //they must be of same type. The `_.isEqual` function is needed
         //to handle the eqaulity checks for complex types like objects.
         return currentValue !== undefined &&
           currentValue !== null &&
           !isNaN(currentValue) &&
-          currentValue.constructor.name === propertyAttributes.type.name &&
+          currentValue.constructor.name === propInfo.type.name &&
           !_.isEqual(defaultValue, currentValue);
       },
 
@@ -299,15 +299,14 @@
 
         propertyKeys.forEach(function(propertyKey) {
           //get the attributes of the property, this is kind of _reflection_
-          var propertyAttributes = this._demoComponent.properties[propertyKey];
+          var propInfo = this._demoComponent.getPropertyInfo(propertyKey);
           var value, defaultValue, currentValue, dataSource, useDs;
 
-          if (!this.canBeChanged(propertyAttributes)) {
+          if (!this.canBeChanged(propInfo)) {
             return;
           }
 
-          defaultValue = this.getDefaultValue(propertyAttributes,
-            this._demoComponent);
+          defaultValue = this.getDefaultValue(propInfo, this._demoComponent);
           currentValue = this._demoComponent[propertyKey];
 
           //see if an initial value is provided in the properties panel
@@ -323,7 +322,7 @@
               this.updateTargets(propertyKey, value);
             }
           } else if (this.applyCurrentValue(defaultValue, currentValue,
-              propertyAttributes)) {
+              propInfo)) {
             //since initial value is not provided and the current value
             //differs from the default value, update the values in html code
             value = currentValue;
