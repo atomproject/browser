@@ -21,13 +21,13 @@ usage: browser [<args>]
 
 Manage the element documentation browser
 usage: browser [-g | --generate]
-               [-n | --new <dir name>]
+               [--baseurl <value>]
 args:
   -g | --generate
     Generate the documentation site in _site dir
 
-  -n | --new <dir name>
-    Create a new browser seeded with sample files
+  --baseurl <value>
+    Provide the value for baseurl while generating the site
 
   -h | --help
       Print help

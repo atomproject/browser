@@ -37,3 +37,15 @@ cd myDocs && browser -g
 
 This creates documentation site in folder `_site`. You can copy this folder for
 deployment.
+
+You can also specify the value of a config variable called `baseurl` while
+generating the site. The `baseurl` is used in cases when you are hosting the
+site in a subdirectory, for following url `https://atomproject.github.io/elements/about/`,
+the site is hosted in a subdirectory called `elements`. To generate a site
+in this case you should use the following command.
+
+Eg.
+
+```
+browser -g --baseurl '/elements'
+```
