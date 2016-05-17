@@ -23,12 +23,16 @@ usage: browser [<args>]
 Manage the element documentation browser
 usage: browser [-g | --generate]
                [--baseurl <value>]
+               [-e]
 args:
   -g | --generate
     Generate the documentation site in _site dir
 
   --baseurl <value>
     Provide the value for baseurl while generating the site
+
+  -e
+    Add elements to the config. You can also create a new element
 
   -h | --help
       Print help

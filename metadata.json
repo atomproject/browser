@@ -8,27 +8,9 @@
         "displayName": "Button",
         "install": "atomelements/t-button",
         "githubUrl": "https://github.com/atomelements/t-button"
-    }, {
-        "name": "t-table",
-        "category": "data",
-        "displayName": "Table",
-        "install": "atomelements/t-table",
-        "githubUrl": "https://github.com/atomelements/t-table"
-    }, {
-        "name": "t-tabs",
-        "category": "page",
-        "displayName": "Tabs",
-        "install": "atomelements/t-tabs",
-        "githubUrl": "https://github.com/atomelements/t-tabs"
     }],
     "categories": [{
-        "name": "data",
-        "displayName": "Data"
-    }, {
         "name": "form",
         "displayName": "Form Basic"
-    }, {
-        "name": "page",
-        "displayName": "Page"
     }]
 }
