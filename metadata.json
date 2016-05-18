@@ -12,5 +12,8 @@
     "categories": [{
         "name": "form",
         "displayName": "Form Basic"
+    }, {
+        "name": "data",
+        "displayName": "Data"
     }]
 }
