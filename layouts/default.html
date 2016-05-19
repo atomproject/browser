@@ -20,15 +20,15 @@
 
     <header-toolbar style="width:100%">
       <div class="horizontal layout center">
-        {% if page.name %}
+        {% if page.title %}
+          <span id="selectedComponent">{{ page.title }}</span>
+        {% elsif page.name %}
           <span id="selectedComponent">{{ page.displayName }}</span>
           {% if page.linkToTravis %}
             <a class="buildStatus" href="{{ page.linkToTravis }}">
               <img src="{{ page.buildStatusUrl }}" alt="Build Status">
             </a>
           {% endif %}
-        {% else %}
-          <span id="selectedComponent">{{ page.title }}</span>
         {% endif %}
         <span class="flex"></span>
         <span class="badge-alpha-testing">Alpha</span>
@@ -36,7 +36,7 @@
     </header-toolbar>
 
     <nav-content>
-      <paper-menu class="nav-panel" selected="1">
+      <paper-menu class="nav-panel">
         <paper-submenu opened>
           <paper-item class="top menu-trigger iron-selected">
             <span class="label">Elements</span>
@@ -79,8 +79,13 @@
           </paper-menu>
         </paper-submenu>
 
-        {% for _page in site.pages %}
-          <paper-item class="top" onClick="redirect('{{ _page.url }}')">{{ _page.name }}</paper-item>
+        {% for _page in site.pagesMenu %}
+          <paper-item
+            class="top {% if page.name == _page.name %} iron-selected {% endif %}"
+            onClick="redirect('{{ _page.url }}')">
+
+            {{ _page.title }}
+          </paper-item>
         {% endfor %}
       </paper-menu>
     </nav-content>
