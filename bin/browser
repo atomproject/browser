@@ -21,7 +21,10 @@ console.log(`
 usage: browser [<args>]
 
 Manage the element documentation browser
-usage: browser [-g | --generate]
+usage: browser [-h | --help]
+               [-v | --version]
+               [--verbose]
+               [-g | --generate]
                [--baseurl <value>]
                [-e]
 args:
@@ -39,10 +42,19 @@ args:
 
   -v | --version
       Print version
+
+  --verbose
+      Spit out as much as info as possible
 `);
 }
 
 Q.spawn(function* () {
+  let log = () => {};
+
+  if (argv.verbose) {
+    log = console.log.bind(console);
+  }
+
   if (argv.h || argv.help) {
     printHelp();
   }
@@ -52,7 +64,7 @@ Q.spawn(function* () {
   }
 
   else if (argv.n || argv.new) {
-    yield seedNew(argv.n || argv.new);
+    yield seedNew(log, argv.n || argv.new);
   }
 
   else if (argv.g || argv.generate) {
@@ -63,11 +75,11 @@ Q.spawn(function* () {
       argvConfig.baseurl = argv.baseurl;
     }
 
-    yield generateSite(argvConfig);
+    yield generateSite(log, argvConfig);
   }
 
   else if (argv.e || argv.addElement) {
-    yield addElement();
+    yield addElement(log);
   }
 
   else {
