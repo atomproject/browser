@@ -216,6 +216,7 @@ build-status {
 .nav-panel paper-item {
   font-size: 13px;
   color: #555555;
+  cursor: pointer;
 }
 
 .nav-panel paper-item .label {
@@ -266,6 +267,6 @@ build-status {
   line-height: 1.58;
   letter-spacing: -.003em;
   margin-left: 30px;
-  margin-bottom: 14px
+  margin-bottom: 14px;
 }
 /***********************/

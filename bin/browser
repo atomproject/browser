@@ -8,6 +8,7 @@ Q.longStackSupport = true;
 
 let {seedNew, generateSite} = require('../lib');
 let addElement = require('../lib/add-element');
+let fixMsys = require('../lib/utils').fixMsys;
 
 function printVersion() {
   let packageJson = path.join(path.dirname(__dirname), 'package.json');
@@ -72,7 +73,8 @@ Q.spawn(function* () {
     let argvConfig = {};
 
     if (argv.baseurl) {
-      argvConfig.baseurl = argv.baseurl;
+      // lookup the definition of `fixMsys` in utils.js
+      argvConfig.baseurl = fixMsys(argv.baseurl);
     }
 
     yield generateSite(log, argvConfig);
