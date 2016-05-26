@@ -2,7 +2,7 @@
   "name": "browser",
   "description": "The atom documentation generator utility",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha"
   },
   "bin": "bin/browser",
   "main": "lib",
@@ -39,5 +39,9 @@
     "url": "^0.11.0",
     "vulcanize": "^1.14.0"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
 }

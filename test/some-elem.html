@@ -1,0 +1,51 @@
+<dom-module id="some-elem">
+  <template></template>
+
+  <script>
+    Polymer({
+      is: 'some-elem',
+
+      properties: {
+        bool: {
+          type: Boolean,
+          value: false
+        },
+
+        num: {
+          type: Number,
+          value: 10
+        },
+
+        str: {
+          type: String,
+          value: 'some string'
+        },
+
+        obj: {
+          type: Object,
+          value: function() { return { a: 1, b: '2', c: true }; }
+        },
+
+        arr: {
+          type: Array,
+          value: function() { return []; }
+        },
+
+        /**
+         * The type in this documentation overrides the basic type
+         * @type {Blah}
+         */
+        dt: {
+          type: Object,
+          value: function() { return {}; }
+        },
+
+        ro: {
+          type: Number,
+          readOnly: true,
+          value: 10
+        }
+      }
+    });
+  </script>
+</dom-module>
