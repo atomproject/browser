@@ -1,12 +1,10 @@
 let path = require('path');
 let assert = require('chai').assert;
-let Q = require('q');
-Q.longStackSupport = true;
 
 let { createProperty } = require('../lib/generate-property');
 
 describe('property.json generator', () => {
-  let actualData;
+  let actualData, fields;
   let elConfig = {
     name: 'some-elem',
     displayName: 'Some Element',
@@ -14,17 +12,24 @@ describe('property.json generator', () => {
   };
 
   before(() => {
-    return createProperty(elConfig).then(data => actualData = data);
+    return createProperty(elConfig).then(data => {
+      actualData = data;
+      fields = actualData.properties[0].fields;
+    });
   });
 
-  it('should have proper basic structure', () => {
+  it('should produce proper structure of property.json', () => {
     assert.equal(actualData.name, elConfig.displayName);
     assert.equal(actualData.properties[0].name, 'Properties');
   });
 
-  describe('should preserve value and type for', () => {
+  it('should ignore private and read only properties', () => {
+    assert.equal(fields.ro, undefined);
+    assert.equal(fields._private, undefined);
+  });
+
+  describe('should preserve name, type and value for', () => {
     it('boolean property', () => {
-      let fields = actualData.properties[0].fields;
       let bool = {
         name: 'bool',
         type: 'boolean',
@@ -35,7 +40,6 @@ describe('property.json generator', () => {
     });
 
     it('string property', () => {
-      let fields = actualData.properties[0].fields;
       let str = {
         name: 'str',
         type: 'string',
@@ -46,7 +50,6 @@ describe('property.json generator', () => {
     });
 
     it('number property', () => {
-      let fields = actualData.properties[0].fields;
       let num = {
         name: 'num',
         type: 'number',
@@ -58,7 +61,6 @@ describe('property.json generator', () => {
   });
 
   it('should remove value for object property', () => {
-    let fields = actualData.properties[0].fields;
     let obj = {
       name: 'obj',
       type: 'object'
@@ -69,7 +71,6 @@ describe('property.json generator', () => {
 
   describe('should remove value and change type to object for', () => {
     it('array property', () => {
-      let fields = actualData.properties[0].fields;
       let arr = {
         name: 'arr',
         type: 'object'
@@ -79,7 +80,6 @@ describe('property.json generator', () => {
     });
 
     it('any other property', () => {
-      let fields = actualData.properties[0].fields;
       let dt = {
         name: 'dt',
         type: 'object'
