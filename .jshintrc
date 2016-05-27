@@ -15,7 +15,9 @@
     "esnext": true,
     "maxlen": 80,
     "globals": {
-        "Polymer": true,
-        "_": true
+      "Polymer": false,
+      "_": false,
+      "describe": false,
+      "it": false
     }
 }
