@@ -1,5 +1,6 @@
 {
     "node": true,
+    "mocha": true,
     "browser": true,
     "bitwise": true,
     "camelcase": true,
@@ -16,8 +17,6 @@
     "maxlen": 80,
     "globals": {
       "Polymer": false,
-      "_": false,
-      "describe": false,
-      "it": false
+      "_": false
     }
 }
