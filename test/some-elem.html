@@ -6,26 +6,31 @@
       is: 'some-elem',
 
       properties: {
+        // check for boolean type
         bool: {
           type: Boolean,
           value: false
         },
 
+        // check for number type
         num: {
           type: Number,
           value: 10
         },
 
+        // check for string type
         str: {
           type: String,
           value: 'some string'
         },
 
+        // check for object type
         obj: {
           type: Object,
           value: function() { return { a: 1, b: '2', c: true }; }
         },
 
+        // check for array type
         arr: {
           type: Array,
           value: function() { return []; }
@@ -40,6 +45,7 @@
           value: function() { return {}; }
         },
 
+        // check for readOnly attribute
         ro: {
           type: Number,
           readOnly: true,
