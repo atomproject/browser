@@ -21,6 +21,7 @@
   "homepage": "https://github.com/atomproject/browser#readme",
   "dependencies": {
     "bower": "^1.7.1",
+    "bower-endpoint-parser": "^0.2.2",
     "cheerio": "^0.19.0",
     "crisper": "^2.0.1",
     "front-matter": "^2.0.1",

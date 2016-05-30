@@ -8,7 +8,7 @@ describe('property.json generator', () => {
   let elConfig = {
     name: 'some-elem',
     displayName: 'Some Element',
-    filePath: path.join(__dirname, 'some-elem.html')
+    filePath: path.join(__dirname, 'fixture/some-elem.html')
   };
 
   before(() => {

@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html>
+<head>
+
+  <meta charset="utf-8">
+
+  <title>extract-deps demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../jquery/jquery.js"></script>
+  <script src="some-js.js"></script>
+
+  <link rel="import" href="../../t-shared-components/theme.html">
+  <link rel="import" href="../../paper-button/paper-button.html">
+  <link rel="import" href="some-html.html">
+
+  <link rel="import" href="../extract-deps.html">
+
+  <!-- css aren't added to the dependencies -->
+  <link rel="stylesheet" href="some-css.css" type="text/css">
+</head>
+<body>
+
+  <extract-deps></extract-deps>
+
+</body>
+</html>

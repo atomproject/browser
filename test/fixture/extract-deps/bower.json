@@ -1,0 +1,15 @@
+{
+  "name": "extract-deps",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "backbone": "backbone-amd#~1.0.0",
+    "bootstrap": "http://twitter.github.io/bootstrap/assets/bootstrap",
+    "paper-button": "polymerelements/paper-button#master"
+  },
+  "devDependencies": {
+    "webcomponentsjs": "^0.7.19",
+    "web-component-tester": "*",
+    "t-shared-components": "atomelements/t-shared-components#^1.0.0"
+  }
+}

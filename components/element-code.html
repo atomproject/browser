@@ -79,7 +79,7 @@
 
       <div class="substep">
         <h5>Install the libraries</h5>
-        <pre><code>{{bowerInstalls(elName, elOrgName, elDependencies, showDs)}}</code></pre>
+        <pre><code>{{bowerInstalls(elName, elDependencies, showDs)}}</code></pre>
 
         <h5>Include the files</h5>
         <highlightjs-element
@@ -129,10 +129,6 @@
           type: Object
         },
 
-        elOrgName: {
-          type: String
-        },
-
         elDependencies: {
           type: Array
         },
@@ -163,10 +159,9 @@
         }, false);
       },
 
-      bowerInstalls: function(elName, elOrgName, elDependencies, showDs) {
+      bowerInstalls: function(elName, elDependencies, showDs) {
         let installs = 'bower install --save ';
 
-        installs += `${elOrgName}/${elName}#master `;
         installs += elDependencies
           .map(dep => dep.install)
           .filter((dep, i, deps) => dep && deps.indexOf(dep) === i)
