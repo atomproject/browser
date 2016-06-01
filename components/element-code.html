@@ -138,6 +138,7 @@
           computed: 'getShowDs(dataSources.*)'
         },
 
+        // TODO: handle bad `absoluteBaseurl`
         absoluteBaseurl: {
           type: String
         },
@@ -177,6 +178,7 @@
       cdnImports: function(elName, elDispName, elDependencies,
         showDs, absoluteBaseurl) {
 
+        // TODO: handle bad `absoluteBaseurl`
         absoluteBaseurl += `${elDispName}/bower_components`;
 
         return this.getDeps(elName, elDependencies, showDs, absoluteBaseurl);
