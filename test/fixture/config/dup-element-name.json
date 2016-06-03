@@ -1,0 +1,9 @@
+{
+  "elements": [{
+    "name": "some-element",
+    "install": "jquery"
+  }, {
+    "name": "some-element",
+    "install": "jquery"
+  }]
+}

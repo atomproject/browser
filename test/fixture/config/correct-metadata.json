@@ -1,0 +1,19 @@
+{
+    "baseurl": "",
+    "absoluteBaseurl": "https://atomproject.github.io/elements/",
+    "footerText": "atom-elements.io",
+    "elements": [{
+        "name": "t-button",
+        "category": "form",
+        "displayName": "Button",
+        "install": "atomelements/t-button",
+        "githubUrl": "https://github.com/atomelements/t-button"
+    }],
+    "categories": [{
+        "name": "form",
+        "displayName": "Form Basic"
+    }, {
+        "name": "data",
+        "displayName": "Data"
+    }]
+}

@@ -25,5 +25,8 @@ describe('github url parser', () => {
 
     ghUrl = 'https://random.com/xx/alskdj';
     assert.throws(gurl.bind(null, ghUrl));
+
+    ghUrl = undefined;
+    assert.throws(gurl.bind(null, ghUrl));
   });
 });
