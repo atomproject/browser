@@ -110,10 +110,64 @@ describe('element', () => {
     });
   });
 
-  // TODO: what more should be added here
   describe('getElement', () => {
+    let elements = [{
+      name: 'paper-button',
+      install: 'polymerelements/paper-button',
+      githubUrl: 'https://github.com/polymerelements/paper-button'
+    }, {
+      name: 'demo-tester',
+      displayName: 'This is Demo Tester',
+      install: 'D:\\atom-project\\browser\\demo-tester'
+    }];
+    let actElements;
+
+    before(() => {
+      return Promise.all(elements.map(el => getElement(el)))
+        .then(result => actElements = result);
+    });
+
     it('should throw if input is not an object', () => {
       return asyncThrows(getElement, null);
+    });
+
+    it('should by default set display name to name', () => {
+      assert.equal(actElements[0].displayName, elements[0].name);
+      assert.equal(actElements[1].displayName, elements[1].displayName);
+    });
+
+    it('should parse github url into user and repo if present', () => {
+      assert.equal(actElements[0].github.user, 'polymerelements');
+      assert.equal(actElements[0].github.repo, 'paper-button');
+    });
+
+    it('should set directory properties of an element', () => {
+      let pageDir = pdn => `_site/${pdn}`;
+      let dir = (pdn, name) => `_site/${pdn}/bower_components/${name}`;
+
+      let pdn = 'paper-button';
+      let pdr = pageDir(pdn);
+      let dr = dir(pdn, 'paper-button');
+      assert.equal(actElements[0].pageDirName, pdn);
+      assert.equal(actElements[0].pageDir, pdr);
+      assert.equal(actElements[0].dir, dr);
+      assert.equal(actElements[0].propertyFile, `${dr}/property.json`);
+      assert.equal(actElements[0].demoFile, `${dr}/demo/index.html`);
+      assert.equal(actElements[0].bowerFile, `${dr}/bower.json`);
+      assert.equal(actElements[0].designDocFile, `${dr}/design-doc.md`);
+      assert.equal(actElements[0].elementFile, `${dr}/paper-button.html`);
+
+      pdn = 'this-is-demo-tester';
+      pdr = pageDir(pdn);
+      dr = dir(pdn, 'demo-tester');
+      assert.equal(actElements[1].pageDirName, pdn);
+      assert.equal(actElements[1].pageDir, pdr);
+      assert.equal(actElements[1].dir, dr);
+      assert.equal(actElements[1].propertyFile, `${dr}/property.json`);
+      assert.equal(actElements[1].demoFile, `${dr}/demo/index.html`);
+      assert.equal(actElements[1].bowerFile, `${dr}/bower.json`);
+      assert.equal(actElements[1].designDocFile, `${dr}/design-doc.md`);
+      assert.equal(actElements[1].elementFile, `${dr}/demo-tester.html`);
     });
   });
 });

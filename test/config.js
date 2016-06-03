@@ -13,7 +13,6 @@ let {
   validateElementCategories,
 
   linkElementsWithCategories,
-  addDirProperties,
 
   getBaseConfig,
   getDefaultConfig,
@@ -203,21 +202,6 @@ describe('linkElementsWithCategories', () => {
       assert.equal(el.category, 'y');
       assert.equal(el.indexInCategory, i);
     });
-  });
-});
-
-describe('addDirProperties', () => {
-  it('should add pageDir and dir properties on elements', () => {
-    let elements = [{
-      name: 'some-element',
-      pageDirName: 'this-is-some-element'
-    }];
-
-    addDirProperties(elements);
-
-    let dir = '_site/this-is-some-element/bower_components/some-element';
-    assert.equal(elements[0].pageDir, '_site/this-is-some-element');
-    assert.equal(elements[0].dir, dir);
   });
 });
 
