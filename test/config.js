@@ -300,7 +300,8 @@ describe('getDefaultConfig', () => {
   });
 });
 
-describe('getConfig', () => {
+describe('getConfig', function() {
+  this.timeout(3000);
   let baseDir = path.dirname(__dirname);
   let configDir = path.resolve(__dirname, 'fixture/config');
 

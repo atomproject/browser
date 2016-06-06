@@ -7,7 +7,7 @@ describe('extract dependencies', () => {
   let actualDeps, elInstall = 'some/bower-endpoint';
   let baseDir = path.join(__dirname, 'fixture/extract-deps');
   let bowerPath = path.join(baseDir, 'bower.json');
-  let demoFilePath = path.join(baseDir, 'demo/index.html');
+  let demoFilePath = path.join(baseDir, 'demo/atom.html');
   let expectedDeps = [{
     type: 'script',
     relPath: 'webcomponentsjs/webcomponents-lite.js',
@@ -78,8 +78,9 @@ describe('extract dependencies', () => {
 
   // this is only necessary if hydrolysis is used internally
   it('should ignore the demo file itself', () => {
+    let demoBaseName = path.basename(demoFilePath);
     let demoDep = actualDeps
-      .find(dep => /demo\/index\.html$/.test(dep.relPath));
+      .find(dep => dep.relPath.indexOf(demoBaseName) > -1);
 
     assert.equal(demoDep, undefined);
   });

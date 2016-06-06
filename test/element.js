@@ -153,12 +153,12 @@ describe('element', () => {
       assert.equal(el.pageDir, pdr);
       assert.equal(el.dir, dr);
       assert.equal(el.propertyFile, `${dr}/property.json`);
-      assert.equal(el.demoFile, `${dr}/demo/index.html`);
+      assert.equal(el.demoFile, `${dr}/demo/atom.html`);
       assert.equal(el.bowerFile, `${dr}/bower.json`);
       assert.equal(el.designDocFile, `${dr}/design-doc.md`);
       assert.equal(el.elementFile, `${dr}/paper-button.html`);
       assert.equal(el.userPropertyFile, 'paper-button/property.json');
-      assert.equal(el.userDemoFile, 'paper-button/demo/index.html');
+      assert.equal(el.userDemoFile, 'paper-button/demo/atom.html');
 
       pdn = 'this-is-demo-tester';
       pdr = pageDir(pdn);
@@ -168,12 +168,12 @@ describe('element', () => {
       assert.equal(el.pageDir, pdr);
       assert.equal(el.dir, dr);
       assert.equal(el.propertyFile, `${dr}/property.json`);
-      assert.equal(el.demoFile, `${dr}/demo/index.html`);
+      assert.equal(el.demoFile, `${dr}/demo/atom.html`);
       assert.equal(el.bowerFile, `${dr}/bower.json`);
       assert.equal(el.designDocFile, `${dr}/design-doc.md`);
       assert.equal(el.elementFile, `${dr}/demo-tester.html`);
       assert.equal(el.userPropertyFile, 'demo-tester/property.json');
-      assert.equal(el.userDemoFile, 'demo-tester/demo/index.html');
+      assert.equal(el.userDemoFile, 'demo-tester/demo/atom.html');
     });
   });
 });
