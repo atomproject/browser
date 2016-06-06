@@ -5,21 +5,19 @@ let { createProperty } = require('../lib/generate-property');
 
 describe('property.json generator', () => {
   let actualData, fields;
-  let elConfig = {
-    name: 'some-elem',
-    displayName: 'Some Element',
-    filePath: path.join(__dirname, 'fixture/some-elem.html')
-  };
+  let name = 'some-elem';
+  let displayName = 'Some Element';
+  let filePath = path.join(__dirname, 'fixture/some-elem.html');
 
   before(() => {
-    return createProperty(elConfig).then(data => {
+    return createProperty(name, filePath, displayName).then(data => {
       actualData = data;
       fields = actualData.properties[0].fields;
     });
   });
 
   it('should produce proper structure of property.json', () => {
-    assert.equal(actualData.name, elConfig.displayName);
+    assert.equal(actualData.name, displayName);
     assert.equal(actualData.properties[0].name, 'Properties');
   });
 

@@ -6,6 +6,8 @@ let { extractDeps, getBowerDeps } = require('../lib/utils');
 describe('extract dependencies', () => {
   let actualDeps, elInstall = 'some/bower-endpoint';
   let baseDir = path.join(__dirname, 'fixture/extract-deps');
+  let bowerPath = path.join(baseDir, 'bower.json');
+  let demoFilePath = path.join(baseDir, 'demo/index.html');
   let expectedDeps = [{
     type: 'script',
     relPath: 'webcomponentsjs/webcomponents-lite.js',
@@ -45,7 +47,7 @@ describe('extract dependencies', () => {
   expectedDeps = expectedDeps.sort(comp);
 
   before(() => {
-    return extractDeps(baseDir, elInstall)
+    return extractDeps(bowerPath, demoFilePath, elInstall)
       .then(deps => actualDeps = deps.sort(comp));
   });
 
