@@ -38,6 +38,7 @@
 
         /**
          * The type in this documentation overrides the basic type
+         * So, the type of `dt` is `Blah` not `Object`
          * @type {Blah}
          */
         dt: {
@@ -55,7 +56,10 @@
         // check for readOnly attribute
         _private: {
           type: String
-        }
+        },
+
+        someFunc: function() {},
+        _privateSomeFunc: function() {}
       }
     });
   </script>

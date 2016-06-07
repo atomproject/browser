@@ -86,4 +86,9 @@ describe('property.json generator', () => {
       assert.deepEqual(fields.dt, dt);
     });
   });
+
+  it('should remove function properties', () => {
+    assert.equal(fields.someFunc, undefined);
+    assert.equal(fields._privateSomeFunc, undefined);
+  });
 });
