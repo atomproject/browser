@@ -191,11 +191,9 @@
       },
 
       getDeps: function(elName, elDependencies, showDs, baseDomain) {
-        let elSrc = `${elName}/${elName}.html`;
         let ds = 'dynamic-data-source/dynamic-data-source.html';
 
         elDependencies = elDependencies.slice();
-        elDependencies.push({relPath: elSrc, type: 'link'});
 
         if (showDs) {
           elDependencies.push({relPath: ds, type: 'link'});

@@ -84,9 +84,20 @@ describe('extract dependencies', () => {
 
     assert.equal(demoDep, undefined);
   });
+
+  it('should not contain duplicates entries', () => {
+    let relPathCount = {};
+
+    for (let {relPath: key} of actualDeps) {
+      relPathCount[key] = relPathCount[key] + 1 || 1;
+      assert.equal(relPathCount[key], 1);
+    }
+
+    console.log(relPathCount);
+  });
 });
 
-describe('get bower dependencies', () => {
+describe('getBowerDeps', () => {
   let bowerPath = path.join(__dirname, 'fixture/extract-deps/bower.json');
   let expectedBowerDeps = {
     'jquery': 'jquery#~1.9.1',
