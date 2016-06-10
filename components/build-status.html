@@ -39,7 +39,7 @@
 			}
 		</style>
 
-		<span class="count">Total Elments: {{elementIds.length}}</span>
+		<span class="count">Total Elments: {{total}}</span>
 		<span class$="{{calculateClasses(buildsOk, 'status')}}"></span>
 	</template>
 	<script>
@@ -54,6 +54,11 @@
 					},
 					observer: 'elementsChanged'
 				},
+
+        total: {
+          type: Number,
+          value: 0
+        },
 
 				buildsOk: {
 					type: Boolean,
@@ -95,7 +100,7 @@
 				var that = this;
 				var undefinedIds;
 
-				if (!elementIds || elementIds.length < 1) {
+				if (!elementIds || !elementIds.length) {
 					return;
 				}
 

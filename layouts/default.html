@@ -94,7 +94,10 @@
       <p>{{ site.footerText }}</p>
     </footer>
 
-    <build-status element-ids-file-path="{{ site.baseurl }}/element-ids.json"></build-status>
+    <build-status
+      total="{{ site.totalElements }}"
+      element-ids-file-path="{{ site.baseurl }}/element-ids.json">
+    </build-status>
 
     {{ content }}
   </t-scaffold>
