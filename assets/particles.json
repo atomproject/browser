@@ -8,7 +8,7 @@
       }
     },
     "color": {
-      "value": "#07c5f2"
+      "value": "{{ site.brandColor }}"
     },
     "shape": {
       "type": "circle",

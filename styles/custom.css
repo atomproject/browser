@@ -83,21 +83,6 @@ canvas {
   overflow:auto;
 }
 
-t-button.btn-green  {
-  background: #07c5f2;
-  color: #fff;
-}
-
-t-button.btn-white paper-button {
-  padding: 15px 18px;
-}
-
-t-button.btn-white  {
-  background: #07c5f2;
-  color: #fff;
-  margin:0 25px;
-}
-
 .signin-box t-button.btn-white.btn-white,
 .signin-box t-button.btn-white.btn-white paper-button {
   display:block;
@@ -235,6 +220,7 @@ build-status {
   height: 25px;
 }
 
+/* Desgin Considerations section */
 .markdown-html h1 {
   font-size: 36px;
 }
