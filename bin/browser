@@ -9,6 +9,7 @@ Q.longStackSupport = true;
 let {seedNew, generateSite} = require('../lib');
 let addElement = require('../lib/add-element');
 let fixMsys = require('../lib/utils').fixMsys;
+let serve = require('../lib/serve');
 
 function printVersion() {
   let packageJson = path.join(path.dirname(__dirname), 'package.json');
@@ -26,11 +27,15 @@ usage: browser [-h | --help]
                [-v | --version]
                [--verbose]
                [-g | --generate]
+               [-s | --serve]
                [--baseurl <value>]
                [-e]
 args:
   -g | --generate
     Generate the documentation site in _site dir
+
+  -s | --serve
+    Watch the current directory for changes and serve the site
 
   --baseurl <value>
     Provide the value for baseurl while generating the site
@@ -82,6 +87,12 @@ Q.spawn(function* () {
 
   else if (argv.e || argv.addElement) {
     yield addElement(log);
+  }
+
+  else if (argv.s || argv.serve) {
+    // we don't need to yield anything here since this is going to
+    // continue until aborts this process
+    serve(log);
   }
 
   else {

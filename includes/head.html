@@ -18,6 +18,10 @@
 <script src="{{ site.baseurl }}/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 <link rel="stylesheet" href="{{ site.baseurl }}/styles/custom.css" media="all" async type="text/css">
 <link rel="import" href="{{ site.baseurl }}/components/elements.html">
+
+{% if site._devEnv %}
+  <script async src='http://localhost:3124/browser-sync/browser-sync-client.2.13.0.js'></script>
+{% endif %}
 <!--[if lt IE 10 ]>
   <script type='text/javascript'>
     alert( 'Your IE is Old' );
