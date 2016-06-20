@@ -1,8 +1,8 @@
 <title>
   {% if page.title %}
-    {{ site.siteName }} | {{ page.title }}
+    {{ page.title }} | {{ site.siteName }}
   {% elsif page.displayName %}
-    {{ site.siteName }} | {{ page.displayName }}
+    {{ page.displayName }} | {{ site.siteName }}
   {% else %}
     {{ site.siteName }}
   {% endif %}
