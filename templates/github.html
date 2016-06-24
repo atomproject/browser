@@ -31,7 +31,8 @@ layout: default
         el-name="{{ page.name }}"
         el-disp-name="{{ page.pageDirName }}"
         el-dependencies='{{ page.dependencies }}'
-        absolute-baseurl='{{ site.absoluteBaseurl }}'>
+        absolute-baseurl='{{ site.absoluteBaseurl }}'
+        baseurl='{{ site.baseurl }}'>
         <template>{{ page.innerHTML }}</template>
       </t-demo-atom>
     </div>

@@ -123,7 +123,7 @@
 
       is: 't-demo-atom',
 
-      properties:{
+      properties: {
         /*filter width for handling responsive*/
         filterWidth: String,
         propertiesFile: String,
@@ -133,6 +133,7 @@
         elDependencies: Array,
         demoFile: String,
         absoluteBaseurl: String,
+        baseurl: String,
 
         landscape: {
           type: Boolean,
@@ -147,10 +148,10 @@
         },
 
         /*activated the  toggle of code section*/
-        activated:{
-          type:Boolean,
-          value:false,
-          reflectToAttribute:true
+        activated: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
         },
 
         _demoComponent: Object
@@ -199,7 +200,7 @@
       },
 
       initIframe: function(iframe) {
-        var script, doc, head;
+        var script, doc, head, url;
 
         iFrameResize({
           checkOrigin: true,
@@ -209,13 +210,16 @@
 
         doc = iframe.contentWindow.document;
 
+        //we need a better way of serving this file
+        url = window.location.origin + '/';
+        url += this.baseurl;
+        url += 'bower_components/iframe-resizer/js/iframeResizer.contentWindow.min.js';
+
         script = doc.createElement('script');
         script.type = 'text/javascript';
         script.async = true;
         script.defer = true;
-        //we need a better way of serving this file
-        script.src = 'https://atomproject.github.io/elements/bower_components/iframe-resizer/js/iframeResizer.contentWindow.min.js';
-
+        script.src = url;
         head = doc.querySelector('head');
         head.appendChild(script);
       },
@@ -276,6 +280,7 @@
 
         sections.forEach(function(section) {
           section.attributes.forEach(function(attrib) {
+            //`valueUndefined` is defined in t-component-panel
             //don't take attributes that don't have a value
             if (!attrib.valueUndefined || attrib.dataSource) {
               properties[attrib.key] = attrib;
