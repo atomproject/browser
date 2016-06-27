@@ -212,8 +212,9 @@
 
         //we need a better way of serving this file
         url = window.location.origin + '/';
-        url += this.baseurl;
+        url += this.baseurl + '/';
         url += 'bower_components/iframe-resizer/js/iframeResizer.contentWindow.min.js';
+        url = url.replace(/\/+/, '/');
 
         script = doc.createElement('script');
         script.type = 'text/javascript';
