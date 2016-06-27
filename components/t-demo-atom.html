@@ -214,7 +214,7 @@
         url = window.location.origin + '/';
         url += this.baseurl + '/';
         url += 'bower_components/iframe-resizer/js/iframeResizer.contentWindow.min.js';
-        url = url.replace(/\/+/, '/');
+        url = url.replace(/([^:])\/+/, '$1/');
 
         script = doc.createElement('script');
         script.type = 'text/javascript';
