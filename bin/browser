@@ -54,9 +54,12 @@ args:
 `);
 }
 
+// TODO: any changes here have to replicated in `ap-io/bin/ap-io`
+// figure out how to avoid this
 Q.spawn(function* () {
   let log = () => {};
 
+  // TODO: implement a better way of doing logging, use `bunyan` module?
   if (argv.verbose) {
     log = console.log.bind(console);
   }
