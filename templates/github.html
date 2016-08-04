@@ -4,10 +4,12 @@ layout: default
 
 <div id="elementContent" class="content layout vertical fit content-component">
   <div id="tabBar" class="layout horizontal center-justified">
-    <paper-tabs noink selected="2">
+    <paper-tabs noink {% if page.disableDemo %} selected="1" {% else %} selected="2" {% endif %}>
       <paper-tab>Design Considerations</paper-tab>
       <paper-tab>Dev Zone</paper-tab>
-      <paper-tab>Demo</paper-tab>
+      {% unless page.disableDemo %}
+        <paper-tab>Demo</paper-tab>
+      {% endunless %}
     </paper-tabs>
   </div>
   <iron-pages selected="2" class="flex" style="position:relative">
@@ -24,18 +26,20 @@ layout: default
     <div class="fit">
       <iframe id="idIframe" src="{{ page.documentationFileUrl }}" width="100%"></iframe>
     </div>
-    <div class="fit">
-      <t-demo-atom
-        demo-file="{{ page.demoFileUrl }}"
-        properties-file="{{ page.propertiesFileUrl }}"
-        el-name="{{ page.name }}"
-        el-disp-name="{{ page.pageDirName }}"
-        el-dependencies='{{ page.dependencies }}'
-        absolute-baseurl='{{ site.absoluteBaseurl }}'
-        baseurl='{{ site.baseurl }}'>
-        <template>{{ page.innerHTML }}</template>
-      </t-demo-atom>
-    </div>
+    {% unless page.disableDemo %}
+      <div class="fit">
+        <t-demo-atom
+          demo-file="{{ page.demoFileUrl }}"
+          properties-file="{{ page.propertiesFileUrl }}"
+          el-name="{{ page.name }}"
+          el-disp-name="{{ page.pageDirName }}"
+          el-dependencies='{{ page.dependencies }}'
+          absolute-baseurl='{{ site.absoluteBaseurl }}'
+          baseurl='{{ site.baseurl }}'>
+          <template>{{ page.innerHTML }}</template>
+        </t-demo-atom>
+      </div>
+    {% endunless %}
   </iron-pages>
 </div>
 

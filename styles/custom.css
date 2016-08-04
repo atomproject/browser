@@ -58,6 +58,8 @@ canvas {
   padding: 5px 10px;
   line-height: 1;
   color: #fff;
+  margin-left: 10px;
+  margin-top: 2px;
 }
 
 #particles-js {
