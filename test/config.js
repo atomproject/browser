@@ -352,4 +352,5 @@ describe('getConfig', function() {
 
   it('should link elements and categories');
   it('should add dir properties on elements');
+  it('should test elements with demo property')
 });

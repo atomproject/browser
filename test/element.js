@@ -175,5 +175,7 @@ describe('element', () => {
       assert.equal(el.userPropertyFile, 'demo-tester/property.json');
       assert.equal(el.userDemoFile, 'demo-tester/demo/atom.html');
     });
+
+    it('should not set demo related files for an element with disableDemo');
   });
 });
