@@ -51,13 +51,13 @@ canvas {
 /*End style for login page*/
 
 .badge-alpha-testing {
-  background-color: rgba(0, 0, 0, 0.28);
-  text-transform: uppercase;
+  /*background-color: rgba(0, 0, 0, 0.28);
+  text-transform: uppercase;*/
   border-radius: 2px;
   font-size: 11px;
   padding: 5px 10px;
   line-height: 1;
-  color: #fff;
+  color: #ff0000;
   margin-left: 10px;
   margin-top: 2px;
 }

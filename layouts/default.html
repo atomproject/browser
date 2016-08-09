@@ -30,9 +30,9 @@
             </a>
           {% endif %}
         {% endif %}
-        {% if page.alpha %}
+        <!-- {% if page.isAlpha %}
           <span class="badge-alpha-testing">Alpha</span>
-        {% endif %}
+        {% endif %} -->
       </div>
     </header-toolbar>
 
@@ -60,7 +60,7 @@
                     data-category="{{ category.name }}">
 
                     {{ component.displayName }}
-                    {% if component.alpha %}
+                    {% if component.isAlpha %}
                       <span class="badge-alpha-testing">Alpha</span>
                     {% endif %}
                   </paper-item>
@@ -78,7 +78,7 @@
                 onclick="redirect('{{ component.pageUrl }}')">
 
                 {{ component.displayName }}
-                {% if component.alpha %}
+                {% if component.isAlpha %}
                   <span class="badge-alpha-testing">Alpha</span>
                 {% endif %}
               </paper-item>
