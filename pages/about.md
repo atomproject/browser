@@ -25,4 +25,4 @@ The ability to style these elements centrally using an interface is being worked
 
 Further documentation for the project can be found [here](https://github.com/atomproject/docs).
 
-To use this element browser interface for your elements, please see the [setup guide](https://github.com/atomproject/elements/blob/master/README.md). 
+To use this element browser interface for your elements, please see the [setup guide](https://github.com/atomproject/ap-io/blob/master/README.md). 
